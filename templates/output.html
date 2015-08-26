@@ -1,0 +1,23 @@
+{% block head %}
+{% block title %} dlTube {% endblock %}
+
+{% endblock %}
+
+{% block body %}
+
+{% for stream in data.streams %}
+<p>
+	
+	<a href = {{ stream.url }}>Download {{stream}}</a>
+
+</p>
+{% endfor %}
+
+{% for astream in data.a_streams %}
+<p>
+	
+	<a href = {{ astream.url }}>Download {{astream}}</a>
+
+</p>
+{% endfor %}
+{%endblock%}
