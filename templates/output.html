@@ -1,23 +1,51 @@
+{% extends 'home.html' %}
 {% block head %}
 {% block title %} dlTube {% endblock %}
-
 {% endblock %}
 
-{% block body %}
+{% block dldetails %}
+<div class = "meta_stuff">
+<p>
+	<h2>{{ data.meta_data.title}}</h2></br>
+	</br>
+	
+	{% if data.meta_data.bthumb %}
+	<img src = "{{ data.meta_data.bthumb}}">
+	{% else %}
+	<img src = "{{data.meta_data.thumb}}">
+	{% endif %}</br>
+	{{data.meta_data.duration}}</br>
 
+	Likes: {{ data.meta_data.likes}}  | Dislikes: {{ data.meta_data.dislikes}}</br>
+	Description:</br>
+	{{ data.meta_data.desc}}
+	
+</p>
+</div>
+
+<div class = "streams">
+<div class = "videostreams">
+<h3>Videos</h3>
 {% for stream in data.streams %}
 <p>
 	
-	<a href = {{ stream.url }}>Download {{stream}}</a>
+	<a href = "{{ stream.url }}" download = {{data.meta_data.title }}>Download {{stream}}</a>
 
 </p>
 {% endfor %}
-
+</div>
+<div class = "audiostreams">
+<h3>Audio</h3>
 {% for astream in data.a_streams %}
 <p>
 	
-	<a href = {{ astream.url }}>Download {{astream}}</a>
+	<a href = "{{ astream.url }}" download ={{data.meta_data.title }}>Download {{astream}}</a>
+
+{% endfor %}
 
 </p>
-{% endfor %}
+</div>
+<p>Use Right-Click and Save-As if download doesn't work properly</p>
+
 {%endblock%}
+</div>

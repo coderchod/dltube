@@ -1,13 +1,16 @@
+<html>
+<head>
+<title>DLtube-Home | Download YouTube video and audio</title>
+<h1>DlTube - Download YouTube videos and audio files</h1>
 
-{% block head%}
-{% block title %}DLtube-Home | Download YouTube video and audio{% endblock %}
-
-{% endblock%}
-
-{% block body %}
+</head>
+<body>
 <form id="Form" action="." method="POST">
    <p><input type = "text" name ="track"></p>
    <p><input type="submit" value="Download"></p>
 </form>
+{% block dldetails %}{% endblock %}
 
-{% endblock %}
+
+</body>
+</html>

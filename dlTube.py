@@ -7,14 +7,26 @@ app = Flask(__name__)
 def tube():
 	if request.method == 'POST':
 		url = request.form['track']
-		v = pafy.new(url)
+		try:
+			v = pafy.new(url)
+		except:
+			return "Invalid URL"
 		s = v.streams
 		audio = v.audiostreams
 		s_urls = [i.url for i in s]
-		return render_template('output.html', data={'streams':s,'urls':s_urls, 'a_streams': audio})
+		meta = {
+		'title': v.title,
+		'duration': v.duration,
+		'bthumb': v.bigthumb,
+		'thumb':v.thumb,
+		'likes':v.likes,
+		'dislikes': v.dislikes,
+		'desc': v.description
+		}
+		return render_template('output.html', data={'meta_data': meta,'streams':s,'urls':s_urls, 'a_streams': audio})
 	else:
 		return render_template('home.html')
 		
 if __name__ == '__main__':
-	app.debug = True
+	app.debug = False
 	app.run()
