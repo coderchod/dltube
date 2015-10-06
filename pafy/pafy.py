@@ -891,7 +891,7 @@ class Stream(object):
 
             self._url = _make_url(self._rawurl, self._sig)
 
-        return self._url
+        return self._url+"&title="+self._title
 
     @property
     def url_https(self):
