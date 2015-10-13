@@ -1,16 +1,42 @@
-<html>
+<!doctype html>
+
+<html lang="en">
 <head>
-<title>DLtube-Home | Download YouTube video and audio</title>
-<h1>DlTube - Download YouTube videos and audio files</h1>
+  <meta charset="utf-8">
 
+  <title>DLtube-Home | Download YouTube Video and Audio</title>
+  <meta name="description" content="Download YouTube media">
+  <meta name="author" content="Ofcourse, me">
+
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/normalize.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/skeleton.css') }}">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 </head>
+
 <body>
+	<div class = "hero">
+	<a href="/"><h1>DlTube - Download YouTube videos and audio files</h1></a>
+</div>
+<div class = "container">
+	
+<div class = "row">	
+<div class = "formhaiyaar">
 <form id="Form" action="." method="POST">
-   <p><input type = "text" name ="track"></p>
-   <p><input type="submit" value="Download"></p>
+   <div class = 'frmimput'><input class = "u-full-width " type = "text" name ="track" placeholder = "Enter the YouTube URL here ..."></div>
+   <div class = 'frmsubmit'><input class = "button-primary" type="submit" value="Download"></div>
 </form>
+</div>
+</div>
+<div class = "dldetails">
 {% block dldetails %}{% endblock %}
+</div>
+</div>
 
-
-</body>
+<div class = "footer">
+	<p><strong>Blah Blah Blah, footer</strong></p>
+<body>
 </html>

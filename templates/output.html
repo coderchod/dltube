@@ -4,48 +4,59 @@
 {% endblock %}
 
 {% block dldetails %}
+<div class = "container">
 <div class = "meta_stuff">
 <p>
 	<h2>{{ data.meta_data.title}}</h2></br>
 	</br>
 	
 	{% if data.meta_data.bthumb %}
-	<img src = "{{ data.meta_data.bthumb}}">
+	<img class = "u-max-full-width" src = "{{ data.meta_data.bthumb}}" width '500' height '500'>
 	{% else %}
-	<img src = "{{data.meta_data.thumb}}">
+	<img class = "u-max-full-width"src = "{{data.meta_data.thumb}}" width '500' height '500'>
 	{% endif %}</br>
-	{{data.meta_data.duration}}</br>
+	
+	<b>Duration:</b> {{data.meta_data.duration}}</br>
 
-	Likes: {{ data.meta_data.likes}}  | Dislikes: {{ data.meta_data.dislikes}}</br>
-	Description:</br>
+	<b>Likes: </b>{{ data.meta_data.likes}}  | <b>Dislikes:</b> {{ data.meta_data.dislikes}}</br>
+	<b>Description:</b></br>
 	{{ data.meta_data.desc}}
 	
 </p>
 </div>
 
+<div class = "row">
 <div class = "streams">
+<div class = "six columns">
 <div class = "videostreams">
 <h3>Videos</h3>
 {% for stream in data.streams %}
 <p>
 	
-	<a href = "{{ stream.url }}" download = {{data.meta_data.title }}>Download {{stream}}</a>
+	<a href = "{{ stream.url }}" download = {{data.meta_data.title }}><b>Download: </b>{{stream}}</a>
 
 </p>
 {% endfor %}
 </div>
+</div>
+<div class = "six columns">
 <div class = "audiostreams">
 <h3>Audio</h3>
 {% for astream in data.a_streams %}
 <p>
 	
-	<a href = "{{ astream.url }}" download ={{data.meta_data.title }}>Download {{astream}}</a>
+	<a href = "{{ astream.url }}" download ={{data.meta_data.title }}><b>Download: </b>{{astream}}</a>
 
 {% endfor %}
 
 </p>
 </div>
+</div>
+</div>
+<div class = "manual-notify">
 <p>Use Right-Click and Save-As if download doesn't work properly</p>
-
+</div>
 {%endblock%}
+
+
 </div>

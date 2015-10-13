@@ -30,4 +30,4 @@ def tube():
 		
 if __name__ == '__main__':
 	app.debug = False
-	app.run()
+	app.run(threaded = True)
